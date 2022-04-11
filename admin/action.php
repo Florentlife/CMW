@@ -524,6 +524,10 @@ if(isset($_GET['action']) AND $_Permission_->verifPerm("PermsPanel", "access"))
 		case 'editGoogleAnalytics':
 		    require('admin/actions/editGoogleAnalytics.php');
 		break;
+
+        case 'downloadTheme':
+            require('admin/actions/downloadTheme.php');
+            break;
 		    
 	
 		// Si le joueur a rentré un url contenant une valeur d'action innexistant?

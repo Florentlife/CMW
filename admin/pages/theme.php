@@ -91,3 +91,91 @@
         <?php }
         echo '</div>';
     } ?>
+
+
+    <?php if ($_Permission_->verifPerm('PermsPanel', 'theme', 'actions', 'editTheme')) { ?>
+    <!-- Download themes -->
+    <div class="col-md-12 col-xl-12 col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">
+                    Liste des Thèmes officiels
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        <div class="text-center">
+                            <p>
+                                <i class="fas fa-info-circle"></i> Vous pouvez directement télécharger nos Thèmes sur notre Market
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Nom</th>
+                        <th class="text-center">Version</th>
+                        <th class="text-center">Version CMW</th>
+                        <th class="text-center">Nombre téléchargement</th>
+                        <th class="text-center">Télécharger</th>
+
+                    </tr>
+                    </thead>
+                    <!-- Affichage des Thèmes disponibles -->
+                    <?php
+                        $themesList = json_decode(file_get_contents("https://devcmw.w3b.websr.fr/API/?getThemeList"));
+
+                        foreach($themesList->getThemeList as $theme):
+                    ?>
+                        <tbody>
+                            <td class="text-center"><?= $theme->title ?></td>
+                            <td class="text-center"><?= $theme->version ?></td>
+                            <td class="text-center"><?= $theme->version_cmw ?></td>
+                            <td class="text-center"><?= $theme->downloads ?></td>
+                            <td class="text-center"><a href="admin.php?action=downloadTheme&id=<?= $theme->id ?>" class="btn btn-primary">Télécharger</a></td>
+                        </tbody>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+            <div class="card-footer">
+
+                <div class="row">
+
+                    <div class="offset-md-4"></div>
+                    <div class="col-md-4">
+
+                        <div class="d-flex justify-content-center">
+
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <button class="page-link" onclick="lessIndex();" aria-hidden="true"
+                                                id="left">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </button>
+                                    </li>
+                                    <input min="0" step="1" class="text-center inputwithoutarrow" max="9999" onchange="setIndex();"
+                                           id="block" type="number" value="0" />
+
+                                    <li class="page-item">
+                                        <button class="page-link" onclick="moreIndex();" aria-hidden="true"
+                                                id="right">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </nav>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php  } ?>

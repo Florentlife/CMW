@@ -1,32 +1,32 @@
 #Ce fichier contiens la config de base du serveur---
-installation: false
+installation: true
 licence: free-craftmywebsite.fr
 General:
-    url: 
-    name: 
+    url: http://localhost/CMW/
+    name: Test Teyir
     theme: default
     themeOption: bootstrap
-    description:
+    description: Site de dev CMW pour Teyir
     bgType: 0
     permsPlugin: groupManager
     permsWorld: world
-    ipTexte: 
-    ip: 
-    port: 
+    ipTexte: mc.one-dream.fr
+    ip: 127.0.0.1
+    port: "25565"
     statut: 2
-    moneyName: "Jeton"
-    createur: 
+    moneyName: Jeton
+    createur:
         nom: Créateur
         effets: style16
         couleur: '#ffffff'
         bg: '#b83d3d'
     joueur: Joueur
 DataBase:
-    dbAdress: 
-    dbName: 
-    dbUser: 
-    dbPassword: 
-    dbPort: 
+    dbAdress: localhost
+    dbName: cmw
+    dbUser: root
+    dbPassword: ""
+    dbPort: "3306"
 Payement:
     paypal: true
     dedipass: false
@@ -34,7 +34,7 @@ Payement:
     currency: EUR
     public_key: ""
     private_key: ""
-    paypalEmail: 
+    paypalEmail: ""
 vote:
     maxDisplay: 10
 color:
@@ -42,7 +42,7 @@ color:
         main: '#ff8040'
         hover: '#c16100'
         focus: '#ffbc9b'
-lastCMWCheck: 1621453057
+lastCMWCheck: 1649689461
 googleService:
     searchConsole:
         id: ""
